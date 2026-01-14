@@ -12,6 +12,9 @@ import Wiki from "./pages/Wiki";
 import Shop from "./pages/Shop";
 import Map from "./pages/Map";
 import Online from "./pages/Online";
+import Rules from "./pages/Rules";
+import Contacts from "./pages/Contacts";
+import Donate from "./pages/Donate";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +34,9 @@ const App = () => (
           <Route path="/shop" element={<Shop />} />
           <Route path="/map" element={<Map />} />
           <Route path="/online" element={<Online />} />
+          <Route path="/rules" element={<Rules />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/donate" element={<Donate />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
