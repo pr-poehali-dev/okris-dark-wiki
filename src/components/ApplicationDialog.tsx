@@ -21,6 +21,13 @@ export function ApplicationDialog({ open, onOpenChange, applicationsEnabled = tr
   const { toast } = useToast();
   const navigate = useNavigate();
 
+  const handleOpenChange = (newOpen: boolean) => {
+    onOpenChange(newOpen);
+    if (!newOpen) {
+      setTimeout(() => setChoice(null), 200);
+    }
+  };
+
   const [formData, setFormData] = useState({
     minecraft_nickname: '',
     age: '',
@@ -59,7 +66,7 @@ export function ApplicationDialog({ open, onOpenChange, applicationsEnabled = tr
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="bg-card/95 backdrop-blur border-border/50 max-w-2xl max-h-[90vh] overflow-y-auto">
         {!choice ? (
           <>
