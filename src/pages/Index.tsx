@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router-dom';
+import { ApplicationDialog } from '@/components/ApplicationDialog';
 
 const mockServerData = {
   online: 47,
@@ -35,6 +36,8 @@ const mockNews = [
 
 export default function Index() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isApplicationOpen, setIsApplicationOpen] = useState(false);
+  const applicationsEnabled = true;
 
   return (
     <div className="min-h-screen bg-background bg-runes">
@@ -73,7 +76,7 @@ export default function Index() {
                   Войти
                 </Button>
               </Link>
-              <Button size="sm" className="box-glow">
+              <Button size="sm" className="box-glow" onClick={() => setIsApplicationOpen(true)}>
                 <Icon name="Play" size={16} className="mr-2" />
                 Играть
               </Button>
@@ -114,7 +117,7 @@ export default function Index() {
                     Войти
                   </Button>
                 </Link>
-                <Button size="sm" className="w-full box-glow">
+                <Button size="sm" className="w-full box-glow" onClick={() => setIsApplicationOpen(true)}>
                   <Icon name="Play" size={16} className="mr-2" />
                   Играть
                 </Button>
@@ -136,14 +139,16 @@ export default function Index() {
               пишите свою историю в ванильном Minecraft с уникальным лором.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button size="lg" className="text-lg box-glow">
+              <Button size="lg" className="text-lg box-glow" onClick={() => setIsApplicationOpen(true)}>
                 <Icon name="Gamepad2" size={20} className="mr-2" />
                 Начать играть
               </Button>
-              <Button size="lg" variant="outline" className="text-lg">
-                <Icon name="BookOpen" size={20} className="mr-2" />
-                Узнать лор
-              </Button>
+              <Link to="/lore">
+                <Button size="lg" variant="outline" className="text-lg">
+                  <Icon name="BookOpen" size={20} className="mr-2" />
+                  Узнать лор
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -295,6 +300,12 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      <ApplicationDialog
+        open={isApplicationOpen}
+        onOpenChange={setIsApplicationOpen}
+        applicationsEnabled={applicationsEnabled}
+      />
     </div>
   );
 }
