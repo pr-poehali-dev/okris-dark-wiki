@@ -15,6 +15,8 @@ import Online from "./pages/Online";
 import Rules from "./pages/Rules";
 import Contacts from "./pages/Contacts";
 import Donate from "./pages/Donate";
+import Nations from "./pages/Nations";
+import NationDetail from "./pages/NationDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +39,8 @@ const App = () => (
           <Route path="/rules" element={<Rules />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/donate" element={<Donate />} />
+          <Route path="/nations" element={<Nations />} />
+          <Route path="/nations/:nationId" element={<NationDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

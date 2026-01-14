@@ -70,6 +70,12 @@ export default function Index() {
               <Link to="/online" className="text-muted-foreground hover:text-primary transition-colors">
                 Онлайн
               </Link>
+              <Link to="/nations" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                Государства
+                <Badge variant="outline" className="bg-yellow-500/20 text-yellow-400 border-yellow-500/50 text-[10px] px-1 py-0">
+                  TEST
+                </Badge>
+              </Link>
               <Link to="/auth">
                 <Button variant="outline" size="sm">
                   <Icon name="User" size={16} className="mr-2" />
@@ -109,6 +115,12 @@ export default function Index() {
               </Link>
               <Link to="/online" className="block py-2 text-muted-foreground hover:text-primary transition-colors">
                 Онлайн
+              </Link>
+              <Link to="/nations" className="block py-2 text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                Государства
+                <Badge variant="outline" className="bg-yellow-500/20 text-yellow-400 border-yellow-500/50 text-[10px] px-1 py-0">
+                  TEST
+                </Badge>
               </Link>
               <div className="pt-2 space-y-2">
                 <Link to="/auth" className="block">
